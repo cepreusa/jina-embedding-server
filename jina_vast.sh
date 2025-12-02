@@ -141,6 +141,15 @@ provisioning_prepare_dirs() {
     
     sudo -u ubuntu mkdir -p "${JINA_DIR}"
     
+    # HuggingFace cache - vast.ai использует /workspace/.hf_home
+    if [[ -d "/workspace" ]]; then
+        mkdir -p /workspace/.hf_home
+        chown -R ubuntu:ubuntu /workspace/.hf_home
+    fi
+    
+    # Fallback - домашняя директория
+    sudo -u ubuntu mkdir -p "${UBUNTU_HOME}/.cache/huggingface"
+    
     log "✓ Директории созданы"
 }
 
