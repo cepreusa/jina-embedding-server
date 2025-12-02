@@ -276,8 +276,8 @@ print(f\"  GPU Memory: {d.get('gpu_memory_used_mb', 'N/A')} / {d.get('gpu_memory
 provisioning_start() {
     provisioning_print_header
     provisioning_check_requirements
-    provisioning_prepare_dirs
     provisioning_create_ubuntu_user
+    provisioning_prepare_dirs
     provisioning_get_apt_packages
     provisioning_setup_venv
     provisioning_install_dependencies
